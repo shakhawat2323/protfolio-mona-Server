@@ -1,6 +1,7 @@
 import compression from "compression";
 import cors from "cors";
 import express from "express";
+import { BlogPost } from "./modules/Blog/blog.router";
 
 const app = express();
 
@@ -20,7 +21,7 @@ app.use(
 app.get("/", (_req, res) => {
   res.send("API is running");
 });
-
+app.use("/api/v1", BlogPost);
 
 // 404 Handler
 app.use((req, res, next) => {
