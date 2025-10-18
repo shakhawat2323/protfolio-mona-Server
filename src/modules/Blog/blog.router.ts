@@ -4,9 +4,9 @@ import { blogController } from "./blog.controller";
 const router = express.Router();
 
 router.post("/blogs", blogController.CreateBlog); // ✅ Create blog
-router.get("/", blogController.GetAllBlogs); // ✅ Get all blogs
-router.get("/:id", blogController.GetBlogById); // ✅ Get blog by id
-router.put("/:id", blogController.UpdateBlog); // ✅ Update blog
-router.delete("/:id", blogController.DeleteBlog); // ✅ Delete blog
+router.get("/blogs", blogController.getAllBlogs); // ✅ Get all blogs
+router.get("/blogs/:id", blogController.GetBlogById); // ✅ Get blog by id
+router.patch("/blogs/:id", blogController.UpdateBlog); // ✅ Update blog
+router.delete("/blogs/:id", blogController.DeleteBlog); // ✅ Delete blog
 
 export const BlogPost = router;

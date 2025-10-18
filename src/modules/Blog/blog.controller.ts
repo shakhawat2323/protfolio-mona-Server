@@ -12,10 +12,29 @@ const CreateBlog = async (req: Request, res: Response) => {
   }
 };
 
-const GetAllBlogs = async (req: Request, res: Response) => {
+const getAllBlogs = async (req: Request, res: Response) => {
   try {
-    const result = await blogService.getAllBlogs();
-    res.json(result);
+    const page = Number(req.query.page) || 1;
+    const limit = Number(req.query.limit) || 6;
+    const search = (req.query.search as string) || "";
+    const isPublished = req.query.isPublished
+      ? req.query.isPublished === "true"
+      : undefined;
+    const authorId = req.query.authorId
+      ? Number(req.query.authorId)
+      : undefined;
+    const sort = (req.query.sort as "asc" | "desc") || "desc";
+
+    const result = await blogService.getAllBlogs({
+      page,
+      limit,
+      search,
+      isPublished,
+      authorId,
+      sort,
+    });
+
+    res.status(200).json(result);
   } catch (error: any) {
     res
       .status(500)
@@ -62,7 +81,7 @@ const DeleteBlog = async (req: Request, res: Response) => {
 
 export const blogController = {
   CreateBlog,
-  GetAllBlogs,
+  getAllBlogs,
   GetBlogById,
   UpdateBlog,
   DeleteBlog,

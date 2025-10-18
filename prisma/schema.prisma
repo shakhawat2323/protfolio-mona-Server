@@ -18,7 +18,9 @@ model Project {
   title       String
   description String?
   pictures    String?   // if you want multiple pictures, use String[]
-  tags        String[]  // array of tags
+  tags        String[]
+  livelink    String  // array of tags
+  githublink    String  // array of tags
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
 }
@@ -31,6 +33,7 @@ model Admin {
   email       String    @unique
   password    String
   name        String?
+  image       String?
   role        Role      @default(ADMIN)
   isActive    Boolean   @default(true)
   blogs       Blog[]
@@ -39,13 +42,14 @@ model Admin {
   updatedAt   DateTime  @updatedAt
 }
 
+
 // =======================
 // 📰 Blog Model
 // =======================
 model Blog {
   id           Int       @id @default(autoincrement())
   title        String
-  Image          String    @unique
+  image          String    
   content      String
   isPublished  Boolean   @default(false)
   publishedAt  DateTime?
@@ -62,4 +66,36 @@ model Blog {
 // =======================
 enum Role {
   ADMIN
+
+}
+
+
+model AboutMe {
+  id                  Int                @id @default(autoincrement())
+  certifications      Certification[]    // array of certifications
+  technologiesMastered Int               @default(15)
+  happyClients        Int                @default(8)
+  completedProjects   Int                @default(20)
+  yearsOfExperience   Float              @default(1.5)
+  createdAt           DateTime           @default(now())
+  updatedAt           DateTime           @updatedAt
+}
+
+model Certification {
+  id        Int      @id @default(autoincrement())
+  title     String
+  org       String
+  year      String
+  image     String?   
+  aboutMeId Int
+  aboutMe   AboutMe   @relation(fields: [aboutMeId], references: [id], onDelete: Cascade)
+}
+
+
+model Technology {
+  id        Int      @id @default(autoincrement())
+  name      String
+  icon      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
