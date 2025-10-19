@@ -1,101 +1,91 @@
+# 🧑‍💻 Shakhawat Portfolio System
 
-# Next Blog Starter
+A **Full-Stack Personal Portfolio** System built with Next.js (Frontend) and Express.js (Backend) — featuring dynamic content management for blogs, projects, skills, and about sections.
 
-A simple **Blog Application Starter Pack** built with **TypeScript, Express.js**.  
-This project is designed for the **Next Level Web Development Bootcamp** to help learners practice Prisma hands-on by building a blog platform.
-
----
-
-## Features
-- TypeScript + Express.js setup
-- Modular project structure
-- Environment configuration with `dotenv`
-- Ready to extend with blog modules (Posts, Users, etc.)
+This system includes both Admin Dashboard and Public Portfolio View, making it perfect for developers who want full control over their personal site.
 
 ---
 
-## Installation
+## ✨ Features
 
-Clone the repository:
+- 🔑 **⚡ Next.js (TypeScript) with Tailwind CSS & App Router**
+- 🛡 **Role-based Authorization**
+- 👛 **ISR (Incremental Static Regeneration) for Blogs Projects**
+- 💸 **🔐 Owner Dashboard — create, update, delete blogs & projects**
+- 📜 **📱 Fully Responsive UI (ShadCN + Tailwind components)**
+- 👑 **Admin Controls**: Blog Create , Post,
+- 📧 **✨ Rich UX: modals, skeleton loading, Framer Motion animations, react-hot-toast notifications**
 
-```bash
-git clone https://github.com/Apollo-Level2-Web-Dev/next-blog-starter.git
-cd next-blog-starter
+---
+
+## 🚀 Live Demo
+
+🔗 **Live API**: [Protfolio](https://protfolio-mona.vercel.app)
+
+---
+
+## 🛠 Tech Stack
+
+| Layer      | Technology              |
+| ---------- | ----------------------- |
+| Backend    | Node.js, Express.js     |
+| Language   | TypeScript              |
+| Database   | PostgreSQL + Prisma ORM |
+| Validation | Zod                     |
+| Auth       | JWT + Next-auth         |
+| Deployment | Vercel                  |
+| Tools      | Postman, VS Code,       |
+
+---
+
+## 📌 API Endpoints
+
+### 🏠 Root
+
+| Method | Endpoint | Description      |
+| ------ | -------- | ---------------- |
+| GET    | `/`      | API Health Check |
+
+---
+
+## 📝 Example Request
+
+## 📌 User Registration API
+
+- Route
+
+# 1️⃣ Clone the repository
+
+```http
+https://github.com/shakhawat2323/protfolio-mona-Server.git
 ```
 
-Install dependencies:
+# 2️⃣ Navigate into folder
 
-```bash
-# using npm
-npm install
+```http
+cd Protfolio
+```
 
-# using yarn
-yarn install
+# 3️⃣ Install dependencies
 
-# using pnpm
+```http
 pnpm install
 ```
 
-Setup environment variables:
+# 4️⃣ Setup environment variables
 
-```bash
+```http
 cp .env.example .env
 ```
 
-Run the development server:
+# 5️⃣ Run Prisma migrations
 
-```bash
-# using npm
-npm run dev
-
-# using yarn
-yarn dev
-
-# using pnpm
-pnpm dev
+```http
+pnpm prisma migrate dev
 ```
 
----
+# 6️⃣ Start the server
 
-## Folder Structure
-
+```http
+pnpm run dev
 ```
-Prisma-Blog/
-│── node_modules/          # Dependencies
-│── src/
-│   ├── app.ts             # Express app configuration
-│   ├── server.ts          # Server entry point
-│   ├── config/            # Environment & configuration files
-│   └── modules/           # Application modules (posts, users, etc.)
-│── package.json           # Project metadata & scripts
-│── pnpm-lock.yaml         # Lockfile (pnpm)
-│── tsconfig.json          # TypeScript configuration
-│── README.md              # Documentation
-```
-
----
-
-## Scripts
-
-```bash
-# Run in development mode
-pnpm dev
-
-# Build for production
-pnpm build
-
-# Run production build
-pnpm start
-```
-
----
-
-## Learning Objective
-
-This starter pack is part of the **Next Level Web Development Bootcamp** curriculum.
-By using this project, students will learn how to:
-
-* Connect a Node.js app with Prisma ORM
-* Build modular APIs
-* Manage environment variables
-* Structure scalable backend projects
